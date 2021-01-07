@@ -96,12 +96,8 @@ function loadOtherGitRepos() {
     request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
-        response.forEach((response, index) => {
-            if (index < githubCardLimit) {
-                populateGitDom(response, ele);
-            }
-        
-        });
+        populateGitDom(response, ele);
+            
     }
     request.send();
 }
