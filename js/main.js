@@ -66,7 +66,7 @@ function populateGitDom(response, ele) {
                 <div class="card-body">
                     <h3 class="card-title">${response.full_name.split('/')[1]}</h3>
                     <p class="card-text pb-5">${response.description}</p>
-                    <p class="card-text bottom-right capitalise"><small class="text-muted">${githubSort} ${new Date(response.updated_at).toLocaleDateString('en-Gb')}</small></p>
+                    ${response.githubSort != undefined ? `<p class="card-text bottom-right capitalise"><small class="text-muted">${githubSort} ${new Date(response.updated_at).toLocaleDateString('en-Gb')}</small></p>` : ''}
                 </div>
         </div>
         </div>`;
@@ -93,15 +93,14 @@ function loadGitRepos() {
 function loadOtherGitRepos() {
     let ele = document.getElementById('other github');
     let request = new XMLHttpRequest();
-    request.open('GET', `https://api.github.com/users/${otherGitUsernames}/repos?sort=${githubSort}&direction=${githubDirection}`, true)
+    request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
         response.forEach((response, index) => {
-            if(response.full_name == otherGitRepos) {
             if (index < githubCardLimit) {
                 populateGitDom(response, ele);
             }
-        }
+        
         });
     }
     request.send();
