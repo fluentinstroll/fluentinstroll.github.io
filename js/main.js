@@ -12,7 +12,7 @@ let articles = [];
 
 // Github
 let gitUsername = 'fluentinstroll';
-let githubCardLimit = 2;
+let githubCardLimit = 6;
 let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
 let otherGitUsernames = 'PhilipMroczkowski'; 
@@ -97,9 +97,11 @@ function loadOtherGitRepos() {
     request.onload = function () {
         response = JSON.parse(request.response);
         response.forEach((response, index) => {
+            if(response.full_name == otherGitRepos) {
             if (index < githubCardLimit) {
                 populateGitDom(response, ele);
             }
+        }
         });
     }
     request.send();
