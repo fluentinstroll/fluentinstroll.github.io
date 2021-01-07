@@ -17,13 +17,11 @@ let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
 
 //Urls for header links
-let githubUrl = 'https://bit.ly/3g7cfr1';
-let twitchUrl = 'https://bit.ly/3dVyNc1';
-let twitterUrl = 'https://bit.ly/2Tg5CJ5';
+let githubUrl = 'github.com/fluentinstroll';
+let twitterUrl = 'twitter.com/spotdodge';
 let linkedInUrl = '';
-let youtubeUrl = 'https://bit.ly/2ZmxVsS';
-let devtoUrl = 'https://bit.ly/3g0vmTp';
-let emailAddress = 'info@equalcoding.dev';
+let devtoUrl = 'dev.to/fluentinstroll';
+let emailAddress = 'fluentinstroll@protonmail.com';
 
 //Default email message
 let defaultEmailSubject = ''
@@ -102,13 +100,6 @@ function loadDevToArticles() {
 */
 function twitter() {
     window.open(twitterUrl);
-}
-function twitch() {
-    window.open(twitchUrl);
-}
-
-function youtube() {
-    window.open(youtubeUrl);
 }
 
 function linkedIn() {
