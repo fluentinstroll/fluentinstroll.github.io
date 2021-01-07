@@ -4,14 +4,14 @@
 document.title = 'equalcoding.dev portfolio'
 
 //devto
-let devtoUsername = 'equalcoding';
+let devtoUsername = 'fluentinstroll';
 let state = 'all'; //only usable
 let perPage = 6; //total items to show
 let page = 1; //returns the first page results
 let articles = [];
 
 // Github
-let gitUsername = 'equalcoding';
+let gitUsername = 'fluentinstroll';
 let githubCardLimit = 2;
 let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
