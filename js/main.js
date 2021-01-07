@@ -96,10 +96,10 @@ function loadOtherGitRepos() {
     let ele = document.getElementById('personal github');
     let request = new XMLHttpRequest();
     for(let i; i < otherGitUsernames; i++) {
-    request[i].open('GET', `https://api.github.com/repos/${otherGitUsernames[i]}/${otherGitRepos[i]}`, true)
+    request.open('GET', `https://api.github.com/repos/${otherGitUsernames[i]}/${otherGitRepos[i]}`, true)
     }
-    for(let i; i < otherGitUsernames; i++){
-    request[i].onload = function () {
+    
+    request.onload = function () {
         response = JSON.parse(request.response);
         response.forEach((response, index) => {
             if (index < githubCardLimit) {
@@ -108,7 +108,7 @@ function loadOtherGitRepos() {
         });
     }
     request.send();
-    }
+    
 }
 
 function loadDevToArticles() {
