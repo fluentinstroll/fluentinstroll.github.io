@@ -36,6 +36,7 @@ let defaultEmailMessage = `Hey! 👋`
 document.addEventListener('DOMContentLoaded', (event) => {
     loadDevToArticles();
     loadGitRepos();
+    loadOtherGitRepos();
 })
 
 /* 
