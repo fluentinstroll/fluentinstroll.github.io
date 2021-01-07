@@ -70,7 +70,7 @@ function populateGitDom(response, ele) {
 * Http calls
 */
 function loadGitRepos() {
-    let ele = document.getElementById('github');
+    let ele = document.getElementById('personal github');
     let request = new XMLHttpRequest();
     request.open('GET', `https://api.github.com/users/${gitUsername}/repos?sort=${githubSort}&direction=${githubDirection}`, true)
     request.onload = function () {
