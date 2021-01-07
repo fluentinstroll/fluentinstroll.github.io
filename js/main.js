@@ -59,6 +59,10 @@ function populateBlogDOM(response, ele) {
 }
 
 function populateGitDom(response, ele) {
+    console.log(`${response.html_url.toString()},
+            ${response.full_name.split('/')[1]}, 
+            ${response.description},
+            ${response.githubSort}`)
     ele.innerHTML = ele.innerHTML +
         `<div class="col-lg-4 pb-4">
         <div class="card card-clickable h-100" onclick="window.open('${response.html_url.toString()}')">
@@ -96,7 +100,8 @@ function loadOtherGitRepos() {
     request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
-        populateGitDom(response, ele);
+        console.log(this.response);
+        populateGitDom(this.response, ele);
             
     }
     request.send();
