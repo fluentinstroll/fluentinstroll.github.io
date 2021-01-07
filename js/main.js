@@ -15,7 +15,10 @@ let gitUsername = 'fluentinstroll';
 let githubCardLimit = 2;
 let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
-
+let otherGitProjects = [
+    'https://github.com/PhilipMroczkowski/Social-Interactions', 
+    'https://github.com/AardWolf/MHTimerBot'
+];
 //Urls for header links
 let githubUrl = 'http://bit.ly/3s3YuyW';
 let twitterUrl = 'https://bit.ly/2JQuuFE';
@@ -82,6 +85,24 @@ function loadGitRepos() {
         });
     }
     request.send();
+}
+
+function loadOtherGitRepos() {
+    let ele = document.getElementById('personal github');
+    let request = new XMLHttpRequest();
+    for(i; otherGitProjects.length; i++){
+    request.open('GET', otherGitProjects[i], true)
+    request.onload = function () {
+        response = JSON.parse(request.response);
+        response.forEach((response, index) => {
+            if (index < githubCardLimit) {
+                populateGitDom(response, ele);
+            }
+        });
+    }
+    
+    request.send();
+}
 }
 
 function loadDevToArticles() {
