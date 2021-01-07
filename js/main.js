@@ -17,11 +17,11 @@ let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
 let otherGitUsernames = [
     'PhilipMroczkowski', 
-    'AardWolf',
+    //'AardWolf',
 ];
 let otherGitRepos = [
     'Social-Interactions',
-    'MHTimerBot',
+    //'MHTimerBot',
 ]
 //Urls for header links
 let githubUrl = 'http://bit.ly/3s3YuyW';
@@ -95,10 +95,7 @@ function loadGitRepos() {
 function loadOtherGitRepos() {
     let ele = document.getElementById('personal github');
     let request = new XMLHttpRequest();
-    for(let i = 0; i < otherGitUsernames; i++) {
-    request.open('GET', `https://api.github.com/repos/${otherGitUsernames[i]}/${otherGitRepos[i]}`, true)
-    }
-    
+    request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
         response.forEach((response, index) => {
