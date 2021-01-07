@@ -15,11 +15,15 @@ let gitUsername = 'fluentinstroll';
 let githubCardLimit = 6;
 let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
-let otherGitUsernames = 'PhilipMroczkowski'; 
-    //'AardWolf',
-//];
-let otherGitRepos = 'Social-Interactions';
-    //'MHTimerBot',
+
+let otherGitUsernames = [
+    'PhilipMroczkowski', 
+    'AardWolf',
+];
+let otherGitRepos = [
+    'Social-Interactions',
+    'MHTimerBot',
+];
 
 //Urls for header links
 let githubUrl = 'http://bit.ly/3s3YuyW';
@@ -94,13 +98,17 @@ function loadGitRepos() {
 //TODO: this function has to get every repo for every member of the otherGitRepos array, right now it only gets one (see above for the arrays)
 function loadOtherGitRepos() {
     let ele = document.getElementById('other github');
+    for(let i = 0; i < otherGitRepos.length; i++){
     let request = new XMLHttpRequest();
-    request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
+    request.open('GET', `https://api.github.com/repos/${otherGitUsernames[i]}/${otherGitRepos[i]}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
+        console.log(this.response.full_name);
         populateGitDom(response, ele);    
     }
     request.send();
+}
+    
 }
 
 function loadDevToArticles() {
