@@ -93,7 +93,7 @@ function loadGitRepos() {
 }
 
 function loadOtherGitRepos() {
-    let ele = document.getElementById('personal github');
+    let ele = document.getElementById('other github');
     let request = new XMLHttpRequest();
     request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
     request.onload = function () {
