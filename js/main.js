@@ -15,14 +15,14 @@ let gitUsername = 'fluentinstroll';
 let githubCardLimit = 2;
 let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
-let otherGitUsernames = [
-    'PhilipMroczkowski', 
+let otherGitUsernames = //[
+    'PhilipMroczkowski'; 
     //'AardWolf',
-];
-let otherGitRepos = [
-    'Social-Interactions',
+//];
+let otherGitRepos = //[
+    'Social-Interactions';
     //'MHTimerBot',
-]
+//]
 //Urls for header links
 let githubUrl = 'http://bit.ly/3s3YuyW';
 let twitterUrl = 'https://bit.ly/2JQuuFE';
@@ -95,7 +95,7 @@ function loadGitRepos() {
 function loadOtherGitRepos() {
     let ele = document.getElementById('other github');
     let request = new XMLHttpRequest();
-    request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
+    request.open('GET', `https://api.github.com/users/${otherGitUsernames}/repos?sort=${githubSort}&direction=${githubDirection}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
         response.forEach((response, index) => {
@@ -105,7 +105,6 @@ function loadOtherGitRepos() {
         });
     }
     request.send();
-    
 }
 
 function loadDevToArticles() {
