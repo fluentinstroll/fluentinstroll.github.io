@@ -17,10 +17,10 @@ let githubSort = 'updated'; //Can be one of created, updated, pushed, full_name.
 let githubDirection = 'desc'; //Can be asc desc
 
 //Urls for header links
-let githubUrl = 'github.com/fluentinstroll';
-let twitterUrl = 'twitter.com/spotdodge';
+let githubUrl = 'http://bit.ly/3s3YuyW';
+let twitterUrl = 'https://bit.ly/2JQuuFE';
 let linkedInUrl = '';
-let devtoUrl = 'dev.to/fluentinstroll';
+let devtoUrl = 'http://bit.ly/3nkrJtV';
 let emailAddress = 'fluentinstroll@protonmail.com';
 
 //Default email message
