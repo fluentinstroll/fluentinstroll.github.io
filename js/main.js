@@ -1,7 +1,7 @@
 /*
 *   Configuration
 */
-document.title = 'equalcoding.dev portfolio'
+document.title = 'Raymond Rambo'
 
 //devto
 let devtoUsername = 'fluentinstroll';
