@@ -59,10 +59,6 @@ function populateBlogDOM(response, ele) {
 }
 
 function populateGitDom(response, ele) {
-    console.log(`${response.html_url.toString()},
-            ${response.full_name.split('/')[1]}, 
-            ${response.description},
-            ${response.githubSort}`)
     ele.innerHTML = ele.innerHTML +
         `<div class="col-lg-4 pb-4">
         <div class="card card-clickable h-100" onclick="window.open('${response.html_url.toString()}')">
@@ -79,6 +75,8 @@ function populateGitDom(response, ele) {
 /* 
 * Http calls
 */
+
+//TODO: this function needs to get only repos for which I am the actual author, not sure how to do this if they are forked, check github api docs
 function loadGitRepos() {
     let ele = document.getElementById('personal github');
     let request = new XMLHttpRequest();
@@ -93,16 +91,14 @@ function loadGitRepos() {
     }
     request.send();
 }
-
+//TODO: this function has to get every repo for every member of the otherGitRepos array, right now it only gets one (see above for the arrays)
 function loadOtherGitRepos() {
     let ele = document.getElementById('other github');
     let request = new XMLHttpRequest();
     request.open('GET', `https://api.github.com/repos/${otherGitUsernames}/${otherGitRepos}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
-        console.log(this.response);
-        populateGitDom(this.response, ele);
-            
+        populateGitDom(response, ele);    
     }
     request.send();
 }
