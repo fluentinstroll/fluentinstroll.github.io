@@ -89,7 +89,7 @@ function loadGitRepos() {
     request.open('GET', `https://api.github.com/users/${gitUsername}/repos?sort=${githubSort}&direction=${githubDirection}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
-        const r = response.filter(res => response.fork == false);
+        const r = response.filter(res => res.fork == false);
         r.forEach((response, index) => {
             if (index < githubCardLimit) {
                 populateGitDom(response, ele);
