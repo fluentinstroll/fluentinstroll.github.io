@@ -106,7 +106,6 @@ function loadOtherGitRepos() {
     request.open('GET', `https://api.github.com/repos/${otherGitUsernames[i]}/${otherGitRepos[i]}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
-        console.log(this.response.full_name);
         populateGitDom(response, ele);    
     }
     request.send();
