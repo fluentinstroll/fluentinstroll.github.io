@@ -89,15 +89,16 @@ function loadGitRepos() {
     request.open('GET', `https://api.github.com/users/${gitUsername}/repos?sort=${githubSort}&direction=${githubDirection}`, true)
     request.onload = function () {
         response = JSON.parse(request.response);
-        response.forEach((response, index) => {
-            if (index < githubCardLimit && response.fork == false) {
+        const r = response.filter(res => response.fork == false);
+        r.forEach((response, index) => {
+            if (index < githubCardLimit) {
                 populateGitDom(response, ele);
             }
         });
     }
     request.send();
 }
-//TODO: this function has to get every repo for every member of the otherGitRepos array, right now it only gets one (see above for the arrays)
+
 function loadOtherGitRepos() {
     let ele = document.getElementById('other github');
     for(let i = 0; i < otherGitRepos.length; i++){
