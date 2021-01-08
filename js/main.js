@@ -19,10 +19,12 @@ let githubDirection = 'desc'; //Can be asc desc
 let otherGitUsernames = [
     'PhilipMroczkowski', 
     'AardWolf',
+    'Seneca-CDOT',
 ];
 let otherGitRepos = [
     'Social-Interactions',
     'MHTimerBot',
+    'telescope'
 ];
 
 //Urls for header links
