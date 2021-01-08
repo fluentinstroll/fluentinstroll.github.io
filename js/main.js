@@ -90,7 +90,7 @@ function loadGitRepos() {
     request.onload = function () {
         response = JSON.parse(request.response);
         response.forEach((response, index) => {
-            if (index < githubCardLimit) {
+            if (index < githubCardLimit && response.fork == false) {
                 populateGitDom(response, ele);
             }
         });
